@@ -11,7 +11,7 @@ def textDecoration(img, labels, x, xdiff, y, color):
             f"{attrib}: {value}",
             (x + xdiff, y - ydiff),
             cv2.FONT_HERSHEY_COMPLEX_SMALL,
-            0.8,
+            0.85,
             color,
             1,
         )
@@ -76,10 +76,10 @@ def detectObj(objs_img, objs_contours, scale, color):
 def classifyObjects(img, width_background, height_background, scale, colors):
     # Redimensiona la imagen a la mitad
     img = cv2.resize(img, (0, 0), None, 0.5, 0.5)
-    cv2.imshow("RESIZE", img)
+    cv2.imshow("Original", img)
 
     img_contour, final_contours = utils.getContours(
-        img, [55, 55], showCanny=True, draw=False, minArea=30000, filter=4
+        img, [55, 55], showCanny=False, draw=False, minArea=30000, filter=4
     )
     # Si identificó los bordes del fondo, ejecuta
     if len(final_contours) != 0:
@@ -119,7 +119,7 @@ def classifyObjects(img, width_background, height_background, scale, colors):
         if cards_quantity:
             textDecoration(
                 cut_img,
-                [["Tarjetas", {cards_quantity}]],
+                [["Tarjetas", cards_quantity]],
                 xb,
                 wb // 2,
                 400,
@@ -129,7 +129,7 @@ def classifyObjects(img, width_background, height_background, scale, colors):
         if coins_quantity:
             textDecoration(
                 cut_img,
-                [["Monedas", {coins_quantity}]],
+                [["Monedas", coins_quantity]],
                 xb,
                 wb // 2,
                 420,

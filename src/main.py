@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import detectObject
 
-webcam = True  # True para vídeo, False para imagen
+webcam = False  # True para vídeo, False para imagen
 img_path = "src/2.jpg"
 video_path = "C:\myvid\prueba4.mp4"
 scale = 2
@@ -10,8 +10,8 @@ scale = 2
 width_background = 279.4 * scale
 height_background = 215.9 * scale
 # Colores de texto y recuadros
-cards_color = (244, 98, 0)
-coins_color = (37, 58, 32)
+cards_color = (55, 0, 218)
+coins_color = (115, 58, 36)
 
 
 if webcam:  # El código se puede probar con un vídeo o una imagen
